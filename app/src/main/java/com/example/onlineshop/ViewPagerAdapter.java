@@ -26,31 +26,41 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 5;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-//        position = position + 1;
+
+
         String title = "";
 
         switch (position){
             case 0:
             {
-                title = "shop";
+                title = "Главное";
                 break;
             }
-
             case 1:
             {
-                title = "magazin";
+                title = "Каталог";
                 break;
             }
 
             case 2:
             {
-                title = "3sdjhdk";
+                title = "магазины";
+                break;
+            }
+            case 3:
+            {
+                title = "Корзина";
+                break;
+            }
+            case 4:
+            {
+                title = "Профиль";
                 break;
             }
         }

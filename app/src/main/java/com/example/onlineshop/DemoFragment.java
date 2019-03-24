@@ -48,11 +48,23 @@ public class DemoFragment extends Fragment {
                 return view;
             }
 
+            case 4:
+            {
+                view = inflater.inflate(R.layout.fragment_demo_4, container, false);
+                return view;
+            }
+
+            case 5:
+            {
+                view = inflater.inflate(R.layout.fragment_demo_5, container, false);
+                return view;
+            }
+
+
             default:
             {
                 view = inflater.inflate(R.layout.fragment_demo_error, container, false);
 
-                int p=4;
                 return view;
             }
         }
