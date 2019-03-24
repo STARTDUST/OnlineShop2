@@ -56,11 +56,15 @@ public class BLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Intent intent=new Intent(BLoginActivity.this,MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    if (mAuth.getCurrentUser().isEmailVerified()) {
+                        Intent intent = new Intent(BLoginActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(BLoginActivity.this,"Please verify your email address",Toast.LENGTH_SHORT).show();
+                    }
                 }
-
                 else {
                     Toast.makeText(BLoginActivity.this,"Sign in failed",Toast.LENGTH_SHORT).show();
                 }

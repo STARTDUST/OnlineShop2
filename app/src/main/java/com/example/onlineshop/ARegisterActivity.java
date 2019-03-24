@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,15 +61,32 @@ public class ARegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (task.isSuccessful()) {
+                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(ARegisterActivity.this,"Registered successfully. Please check your email for verification",Toast.LENGTH_SHORT).show();
 
-                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).setValue(
-                        new UserInfo(email, phone, user.getUid()));
+                                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                Intent intent = new Intent(ARegisterActivity.this,MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).setValue(
+                                        new UserInfo(email, phone, user.getUid()));
 
-                startActivity(intent);
+                                Intent intent = new Intent(ARegisterActivity.this, BLoginActivity.class);
+//                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                                startActivity(intent);
+                            }
+                            else {
+                                Toast.makeText(ARegisterActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(ARegisterActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
