@@ -52,7 +52,7 @@ public class DemoFragment extends Fragment {
             {
                 view = inflater.inflate(R.layout.fragment_demo_error, container, false);
 
-                int p=3;
+                int p=4;
                 return view;
             }
         }
