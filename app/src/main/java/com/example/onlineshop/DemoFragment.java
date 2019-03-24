@@ -51,6 +51,8 @@ public class DemoFragment extends Fragment {
             default:
             {
                 view = inflater.inflate(R.layout.fragment_demo_error, container, false);
+
+                int p=9;
                 return view;
             }
         }
