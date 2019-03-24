@@ -18,6 +18,8 @@ public class Home extends Application {
             Intent intent = new Intent(Home.this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
+            int jk;
         }
     }
 }
