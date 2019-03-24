@@ -106,7 +106,7 @@
 
     <TextView
 
-        android:id="@+id/tv_username_profile_row"
+        android:id="@+id/tv_have_acc_main"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginTop="8dp"
