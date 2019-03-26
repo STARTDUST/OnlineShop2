@@ -1,24 +1,17 @@
 package com.example.onlineshop;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DemoFragment extends Fragment {
-    Context context;
 
     public DemoFragment() {
     }
