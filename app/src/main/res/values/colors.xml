@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#000000</color>
+    <color name="colorStatusBar">#702323</color>
     <color name="colorTabLayout">#A32727</color>
     <color name="colorTextTabLayout">#FFFFFF</color>
 </resources>

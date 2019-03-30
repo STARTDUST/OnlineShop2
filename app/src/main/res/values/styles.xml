@@ -6,11 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:windowLightStatusBar">@color/colorStatusBar</item>
     </style>
 
     <style name="MyCustomTabText" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">10.15sp</item>
+        <item name="android:textSize">27px</item>
 
     </style>
 
